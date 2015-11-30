@@ -1,3 +1,42 @@
 <template name="catalog">
-    CATALOG
+    <div class="row content">
+        <!--<div class="col s1"><p></p></div>-->
+        <div class="col s2">
+            <div class="filter-wrapper right">
+                <p>Choose category:</p>
+                <ul class="filters">
+                    {{#each categories}}
+                    <li class="li-filter">
+                        <input type="checkbox" id="{{_id}}" class="filter" />
+                        <label for="{{_id}}">{{name}}</label>
+                    </li>
+                    {{/each}}
+                    {{#if isDesinger}}
+                        <br>
+                        <li class="divider"></li>
+                        <li class="li-filter">
+                            <input type="checkbox" id="active-items" class="active" />
+                            <label for="active-items">Active Items</label>
+                        </li>
+                        <li class="li-filter">
+                            <input type="checkbox" id="archived-items" class="" />
+                            <label for="archived-items">Archived Items</label>
+                        </li>
+                        <br>
+                        <li class="btn add-item-btn">New Item</li>
+                        <br>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+        <div class="col s9">
+            <div class="row"> 
+                {{#each models}}
+                    <div class="col s3">
+                        {{>modelCard this}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
 </template>

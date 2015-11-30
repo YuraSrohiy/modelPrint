@@ -7,6 +7,18 @@ body{
     background-color: #2f4050;
 }
 
-a{
-    color: black;
+.btn{
+    background-color: #2f4050;
+}
+
+.btn:hover{
+    background-color: #394d60;
+}
+
+.content{
+    padding-top: 20px;
+}
+
+.divider{
+    background-color: #cccccc;
 }

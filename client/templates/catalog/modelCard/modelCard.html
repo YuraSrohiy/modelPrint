@@ -1,0 +1,28 @@
+<template name="modelCard">
+    <div class="card hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{image}}l.png">
+        </div>
+        <div class="card-content">
+            <div class="row card-title ">
+                <div class="col s10 activator truncate">
+                    {{name}} 
+                </div>
+                <div class="right col s2">
+                    {{price}}$    
+                </div>
+            </div>
+            <p class="detail-item-view">
+                Detail view<i class="fa fa-angle-right fa-lg right"></i>
+            </p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{name}}</span>
+            <p>{{description}}</p>
+            {{#if isDesinger}}
+                <button class="btn edit-item col s6">EDIT</button>
+                <button class="btn red remove-item col s6 right">REMOVE</button>
+            {{/if}}
+        </div>
+    </div>
+</template>

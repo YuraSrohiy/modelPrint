@@ -44,6 +44,7 @@ iron:location@1.0.11
 iron:middleware-stack@1.0.11
 iron:router@1.0.12
 iron:url@1.0.11
+jagi:reactive-array@0.1.0
 jquery@1.11.4
 launch-screen@1.0.4
 livedata@1.0.15
@@ -79,6 +80,7 @@ spacebars@1.0.7
 spacebars-compiler@1.0.7
 srp@1.0.4
 standard-minifiers@1.0.2
+stevezhu:lodash@3.10.1
 templating@1.1.5
 templating-tools@1.0.0
 tracker@1.0.9

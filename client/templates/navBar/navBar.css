@@ -2,6 +2,11 @@
     font-size: 20px !important;
 }
 
-.brand-logo{
-    margin-left: 5px;
+/*.brand-logo{*/
+/*    margin-left: 5px;*/
+/*}*/
+
+nav{
+    padding-left: 15px;
+    padding-right: 15px;
 }

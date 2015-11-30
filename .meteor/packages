@@ -23,3 +23,5 @@ useraccounts:materialize
 alanning:roles
 aldeed:simple-schema
 fortawesome:fontawesome
+jagi:reactive-array
+reactive-var

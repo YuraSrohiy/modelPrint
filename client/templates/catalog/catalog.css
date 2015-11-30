@@ -1,0 +1,11 @@
+.li-filter{
+    margin-top: 10px;
+}
+
+.li-filter > label{
+    color: black;
+}
+
+.filters{
+    margin-top: -10px;
+}
