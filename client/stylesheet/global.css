@@ -22,3 +22,7 @@ body{
 .divider{
     background-color: #cccccc;
 }
+
+.container-top{
+    padding-top: 25px;    
+}

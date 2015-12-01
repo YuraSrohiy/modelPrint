@@ -13,7 +13,9 @@ Template.catalog.onCreated(function() {
 });
 
 Template.catalog.onRendered(function () {
-    $("#active-items")[0].checked = true;
+    if(MP.isDesinger()){
+        $("#active-items")[0].checked = true;
+    }
 })
 
 Template.catalog.helpers({
@@ -63,5 +65,11 @@ Template.catalog.events({
    "change #archived-items": function (e, t) {
        var state = e.target.checked;
        t.archiveFilter.archived.set(state);
+   },
+   
+   "click .add-item-btn": function (e,t) {
+       if(MP.isDesinger()){
+           Router.go("addModel");
+       }
    }
 });

@@ -1,6 +1,8 @@
 .card-title{
     margin-left: -15px;
     cursor: pointer;
+    font-size: 18px !important;
+    line-height: 20px !important;
 }
 
 .detail-item-view{
