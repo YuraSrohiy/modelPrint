@@ -15,6 +15,10 @@ body{
     background-color: #394d60;
 }
 
+.btn:focus{
+    background-color: #394d60;
+}
+
 .content{
     padding-top: 20px;
 }
@@ -25,4 +29,28 @@ body{
 
 .container-top{
     padding-top: 25px;    
+}
+
+.switch label input[type=checkbox]:checked + .lever:after{
+    background-color: #2f4050;
+}
+
+.switch label input[type=checkbox]:checked + .lever{
+    background-color: #4c6780;
+}
+
+[type="radio"]:checked + label:after{
+    border: 2px solid #2f4050;
+    background-color: #2f4050;
+}
+
+@media only screen and (min-width: 993px){
+  #toast-container {
+      min-width: 8%;
+      bottom: 10%;
+      left: 7%;
+      top: auto;
+      right: auto;
+      
+  }
 }
