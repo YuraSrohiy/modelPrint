@@ -76,5 +76,10 @@ Template.catalog.events({
        if(MP.isDesinger()){
            Router.go("addModel");
        }
+   }, 
+   "click .manage-categories": function (e, t) {
+       if(MP.isDesinger()){
+           Router.go("categoryManage");
+       }
    }
 });

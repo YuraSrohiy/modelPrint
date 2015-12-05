@@ -1,0 +1,20 @@
+<template name="categoryManage">
+    <div class="container content">
+        <div class="container">
+            <ul class="collection categories align-center">
+                {{#each categories}}
+                    {{>categoryItem this}}
+                {{/each}}
+            </ul>
+            <div class="center-align row">
+                <div class="input-field col s8">
+                    <input type="text" id="add-category-input"/>
+                    <label for="add-category-input">Add category</label>
+                </div>
+                <div class="col s3 right">
+                    <button class="btn col s12 add-category-btn">Add category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

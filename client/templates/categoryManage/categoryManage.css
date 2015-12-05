@@ -1,0 +1,11 @@
+.delete-category >i{
+    color: red;
+}
+
+.rename-category >i{
+    color: green;
+}
+
+.add-category-btn{
+    margin-top: 15px;
+}
