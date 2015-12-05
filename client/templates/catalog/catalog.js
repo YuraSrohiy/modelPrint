@@ -10,6 +10,7 @@ Template.catalog.onCreated(function() {
     _.each(categories, function(category) {
         self.categories[category._id] = new ReactiveVar(false);
     });
+    self.categories.noCategory = new ReactiveVar(false);
 });
 
 Template.catalog.onRendered(function () {
@@ -26,7 +27,11 @@ Template.catalog.helpers({
         var archiveFilter = Template.instance().archiveFilter;
         _.each(categories, function (state, id) {
             if (state.get()){
-                categoryArr.push(id);
+                if(id === "noCategory"){
+                    categoryArr.push(undefined);
+                } else {
+                    categoryArr.push(id);    
+                }
             }
         });
         

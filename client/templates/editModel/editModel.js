@@ -1,13 +1,48 @@
-Template.addModel.onCreated(function () {
+Template.editModel.onCreated(function () {
     this.imageUrl = new ReactiveVar("http://imgur.com/ujcnFMc");
 })
 
-Template.addModel.onRendered(function () {
+Template.editModel.onRendered(function () {
+    var modelId = Router.current().params.id;
+    var model = Models.findOne({_id: modelId});
+    console.log()
+    
+    $("#modelName").val(model.name);
+    $('label[for="modelName"]').addClass("active");
+    
+    $("#modelDescription").val(model.description);
+    $('label[for="modelDescription"]').addClass("active");
+    
+    $("#modelImage").val(model.image);
+    $('label[for="modelImage"]').addClass("active");
+    
+    $("#modelDimensions").val(model.dimensions);
+    $('label[for="modelDimensions"]').addClass("active");
+    
+    if(model.image){
+        this.imageUrl.set(model.image);
+    }
+    $("#modelPrice").val(model.price);
+    $('label[for="modelPrice"]').addClass("active");
+    
+    if(model.categoryId){
+        var category = Categories.findOne({_id: model.categoryId});
+        $(".category-choose").val(category.name);
+    } else {
+        $(".category-choose").val("");
+    }
+    
+    
+    if(model.status === "archived"){
+        $("#archived-item").prop("checked", true);
+    } else {
+        $("#active-item").prop("checked", true);
+    }
     $("select").material_select();
-    $("#archived-item").prop("checked", true);
+    
 });
 
-Template.addModel.helpers({
+Template.editModel.helpers({
     imageUrl: function () {
         return Template.instance().imageUrl.get()+"l.png";
     },
@@ -16,14 +51,14 @@ Template.addModel.helpers({
     }
 });
 
-Template.addModel.events({
+Template.editModel.events({
     'input #modelImage': function (e, t) {
         var url = $("#modelImage").val();
         if(url.trim().length > 0){
             t.imageUrl.set(url);
         }
     },
-    'submit #addModelForm': function (e, t) {
+    'submit #editModelForm': function (e, t) {
         e.preventDefault();
         var insertObj = {};
         insertObj.name = $("#modelName").val();
@@ -56,11 +91,13 @@ Template.addModel.events({
                 }
             })
         }
-        Meteor.call("addModel", insertObj, function (err) {
+        var id = Router.current().params.id;
+        Meteor.call("updateModel", id, insertObj, function (err) {
             if(err){
-                MP.notify("Insert failed");
+                console.log(err);
+                MP.notify("Update failed");
             } else {
-                MP.notify("Model added!");
+                MP.notify("Model updated!");
                 Router.go("catalog");
             }
         });

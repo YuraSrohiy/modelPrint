@@ -12,6 +12,13 @@
                     </li>
                     {{/each}}
                     {{#if isDesinger}}
+                        <li class="li-filter">
+                            <input type="checkbox" id="noCategory" class="filter" />
+                            <label for="noCategory">No category</label>
+                        </li>
+                        <br>
+                        <li class="btn manage-categories col s12">Manage</li>
+                        <br>
                         <br>
                         <li class="divider"></li>
                         <li class="li-filter">
@@ -23,8 +30,12 @@
                             <label for="archived-items">Archived Items</label>
                         </li>
                         <br>
-                        <li class="btn add-item-btn">New Item</li>
+                        <li class="btn add-item-btn col s12">New Item</li>
                         <br>
+                        <!--Model delete confirm modal-->
+                        <div class="modalWrapper">
+                            
+                        </div>
                     {{/if}}
                 </ul>
             </div>
