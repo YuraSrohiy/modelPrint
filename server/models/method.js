@@ -27,5 +27,12 @@ Meteor.methods({
         if(userId && MP.isDesinger(userId)){
             Models.update({_id: id}, {$set:insertObj});
         }
+    },
+    
+    "addToCart": function (id) {
+        var userId = this.userId;
+        if(userId && !MP.isDesinger(userId)){
+            Meteor.users.update({_id: userId},{$addToSet:{cart:id}});
+        }
     }
 })

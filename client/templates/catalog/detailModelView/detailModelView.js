@@ -1,13 +1,17 @@
-Template.modelCard.helpers({
-    price: function () {
-        return Template.currentData().price.toLocaleString("USD");
-    }
-})
+Template.detailModelView.onCreated(function () {
+    this.model = Models.findOne({_id: Router.current().params.id});
+});
 
-Template.modelCard.events({
+Template.detailModelView.helpers({
+    model: function () {
+        return Template.instance().model;
+    }
+});
+
+Template.detailModelView.events({
     "click .remove-item": function (e, t) {
         e.preventDefault();
-        var item = t.data;
+        var item = t.model;
         //console.log(item);
         if(item.status === "active"){
             Meteor.call("changeModelStatus", item._id, "archived", function (err) {
@@ -24,16 +28,12 @@ Template.modelCard.events({
     
     "click .edit-item": function (e, t) {
         if(MP.isDesinger()){
-            Router.go("editModel", {id: t.data._id});
+            Router.go("editModel", {id: t.model._id});
         }    
     },
     
-    "click .detail-item-view": function (e, t) {
-        Router.go("detailModelView",{id:t.data._id});
-    },
-    
     "click .add-to-cart": function (e, t) {
-        var modelId = t.data._id;
+        var modelId = t.model._id;
         Meteor.call("addToCart", modelId, function (err) {
             if(err){
                 MP.notify(err);

@@ -1,0 +1,25 @@
+<template name="detailModelView">
+    <div class="container content">
+        {{#with model}}
+            <div class="row">
+                <div class="col s7 image-container">
+                    <div class="model-image" style="background-image:url({{image}}l.png)"></div>
+                </div>
+                <div class="col s4">
+                    <h4>{{name}}</h4>
+                    <h5>Description:</h5>
+                    <p>{{description}}</p>
+                    <h5>Dimensions:</h5>
+                    <p>{{dimensions}}</p>
+                    <h4>Price: {{price}}$</h4>
+                    {{#if isDesinger}}
+                        <button class="btn edit-item col s6">EDIT</button>
+                        <button class="btn red remove-item col s6 right">REMOVE</button>
+                    {{else}}
+                        <button class="btn add-to-cart col s12">Add to cart</button>
+                    {{/if}}
+                </div>
+            </div>
+        {{/with}}
+    </div>
+</template>

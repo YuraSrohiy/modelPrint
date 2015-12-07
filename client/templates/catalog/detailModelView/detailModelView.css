@@ -1,0 +1,11 @@
+.model-image{
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.image-container{
+    height: 500px;
+}
