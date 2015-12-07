@@ -1,7 +1,17 @@
 <template name="categoryItem">
     <li class="collection-item row">
         <div class="col s10">
-            {{name}}
+            {{#unless editMode}}
+                {{name}}
+            {{else}}
+                <div class="input-field col s8">
+                    <input type="text" id="edit-category-input"/>
+                    <label for="edit-category-input">Edit category</label>
+                </div>
+                <div class="col s3 right">
+                    <button class="btn col s12 edit-category-btn">Edit category</button>
+                </div>
+            {{/unless}}
         </div>
         <div class="col s1">
             <a href="" class="rename-category right">
