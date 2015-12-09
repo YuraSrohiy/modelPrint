@@ -1,0 +1,19 @@
+<template name="cartItem">
+    <div class="row">
+        <div class="col s9 valign-wrapper">
+            <img src="{{cart.image}}t.png" class="col s2"/>
+            <h5 class="valign">{{cart.name}}</h5>
+        </div>
+        <div class="col s1">
+            <div class="valign-wrapper" style="height:75px;">
+                <h5 class="valign item-price">{{wholePrice}}$</h5>
+            </div>
+        </div>
+        <div class="col s2 valign-wrapper">
+            <div class="input-field counter-wrapper col s10">
+                <input type="number" class="quantity-counter center-align" step="1" value="1" min="1"/>
+            </div>
+            <a href="#"><i class="valign fa fa-times fa-lg col s1 delete-from-cart" style="color:red;"></i></a>
+        </div>
+    </div>
+</template>

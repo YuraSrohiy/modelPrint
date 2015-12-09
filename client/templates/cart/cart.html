@@ -1,0 +1,52 @@
+<template name="cart">
+    <form id="applyOrder" class="container-top container">
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header active center-align "><h5 class="order-header">Ordered Models</h5></div>
+                <div class="collapsible-body container-top">
+                    {{#each cart}}
+                        {{> cartItem cart=this prices=getPrices}}
+                    {{/each}}
+                </div>
+            </li>
+        </ul>
+        
+        <div class="row">
+            <h4 class="col s12 center-align">Total Price: {{totalPrice}}$</h4>
+        </div>
+        
+        <div class = "row">
+            <div class="container">
+                <div class="input-field col s6">
+                    <input type="text" id="firstName" />
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" id="lastName" />
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" id="phoneNumber" />
+                    <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" id="cityName" />
+                    <label for="cityName">City Name</label>
+                </div>
+                <div class="input-field col s8">
+                    <input type="text" id="streetName" />
+                    <label for="streetName">Street</label>
+                </div>
+                <div class="input-field col s2">
+                    <input type="text" id="homeNumber" />
+                    <label for="homeNumber">Home №</label>
+                </div>
+                <div class="input-field col s2">
+                    <input type="text" id="flatNumber" />
+                    <label for="flatNumber">Flat №</label>
+                </div>
+                <button class="btn make-order-btn col s12">MAKE ORDER</button>
+            </div>
+        </div>
+    </form>
+</template>
