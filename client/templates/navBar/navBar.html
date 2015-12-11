@@ -7,6 +7,8 @@
                 <li><a href="{{pathFor route='orders'}}">Orders</a></li>
                 {{#unless isDesinger}} 
                     <li><a href="{{pathFor route='cart'}}"><i class="fa fa-shopping-cart"></i></a></li>
+                {{else}}
+                    <li><a href="{{pathFor route='userManage'}}">Users</a></li>
                 {{/unless}}    
                 <li><a href=""><i class="fa fa-sign-out icon-sm sign-out"></i></a></li>
             </ul>

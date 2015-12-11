@@ -1,6 +1,11 @@
 Template.cart.onCreated(function () {
     var cartIds = Meteor.user().cart;
-    var models = Models.find({_id:{$in:cartIds}}).fetch();
+    if(cartIds){
+        var models = Models.find({_id:{$in:cartIds}}).fetch();
+    } else {
+        var models = [];
+    }
+    
     var pricesObj = {};
     _.each(models,function (model) {
         pricesObj[model._id] = {
@@ -20,7 +25,10 @@ Template.cart.onRendered(function () {
 Template.cart.helpers({
     cart: function () {
         var cartIds = Meteor.user().cart;
-        return Models.find({_id:{$in:cartIds}});
+        if(cartIds){
+            return Models.find({_id:{$in:cartIds}});
+        }
+        
     },
     
     totalPrice: function () {
@@ -48,6 +56,10 @@ Template.cart.events({
             home: $("#homeNumber").val(),
             flat: $("#flatNumber").val()
         }
+        if($(".cart-container >").length <1){
+            MP.notify("Your cart is empty!");
+            return
+        }
         var flag = false;
         _.each(orderObj.ownerData,function(prop) {
            if(!prop && !flag){
@@ -73,8 +85,12 @@ Template.cart.events({
 var calculateTotal = function(tmpl) {
     var prices = tmpl.prices.get(),
         cartIds = Meteor.user().cart,
-        models = Models.find({_id: {$in: cartIds }}).fetch(),
         sum = 0;
+    if(cartIds){
+        var models = Models.find({_id:{$in:cartIds}}).fetch();
+    } else {
+        var models = [];
+    }
 
     _.each(models, function(model) {
         var modelId = model._id;

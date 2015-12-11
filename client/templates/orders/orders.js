@@ -1,3 +1,8 @@
 Template.orders.onRendered(function() {
-    $('ul.tabs').tabs();
+})
+
+Template.orders.helpers({
+    orders: function () {
+        return Orders.find();
+    }
 })

@@ -3,7 +3,7 @@
         <ul class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header active center-align "><h5 class="order-header">Ordered Models</h5></div>
-                <div class="collapsible-body container-top">
+                <div class="collapsible-body container-top cart-container">
                     {{#each cart}}
                         {{> cartItem cart=this prices=getPrices}}
                     {{/each}}

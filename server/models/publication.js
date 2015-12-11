@@ -8,6 +8,8 @@ Meteor.publish("Model", function(id) {
 
 Meteor.publish("userCart", function() {
     var user = Meteor.users.findOne({_id:this.userId});
-    
-    return Models.find({_id:{$in:user.cart}});
+    if(user.cart){
+        return Models.find({_id:{$in:user.cart}});
+    }
+    this.ready();
 })

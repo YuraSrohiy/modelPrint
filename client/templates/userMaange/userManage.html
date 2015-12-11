@@ -1,0 +1,20 @@
+<template name="userManage">
+    <div class = "container container-top">
+        <table class="bordered">
+            <thead>
+                <tr>
+                    <th data-field="email">Email</th>
+                    <th data-field="user">User</th>
+                    <th data-field="desinger">Desinger</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                    <tr>
+                        {{>userRow this}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
